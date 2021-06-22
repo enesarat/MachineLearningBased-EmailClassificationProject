@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Email Spam Classification</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+   
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@250&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Web.css') }}">
+
+
+
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <div class="content-box">
+                <div class="message_box">
+                    <form enctype=multipart/form-data method="POST">
+                        <h2>
+                            EMAIL SPAM DETECTOR
+                        </h2>
+                        <p> 
+                            
+                            <textarea  name="email" required type="text" placeholder="Enter your email here" class="message" >{{ request.form['email'] }}</textarea>
+                        </p>
+    
+                        <button type="submit" class="btn" >  PREDICT </button>
+                    </form>
+                </div>
+            </div>
+            
+
+
+            <div class="post-box">
+                {% block content %}
+                {% if check == -1 %}
+        
+                 <div class="box">
+                    <div class="front-face">
+                       <div class="icon">
+                        <i class="fas fa-check-square"></i>
+                       </div>
+                       <span>HAM</span>
+                    </div>
+                    <div class="back-face">
+                       <span>Ham</span>
+                       <p>
+                        Ham is e-mail that is not Spam. In other words, "non-spam", or "good mail
+                       </p>
+                    </div>
+                 </div>
+                 <div class="box">
+                    <div class="front-face">
+                       <div class="icon">
+                        <i class="fas fa-exclamation-triangle"></i>
+                       </div>
+                       <span>SPAM</span>
+                    </div>
+                    <div class="back-face">
+                       <span>Spam</span>
+                       <p>
+                        Spam or unsolicited messages, e-mail, telephone,
+                        fax messages sent to multiple recipients at the same time in electronic media.
+                        The most common types of spam are ads and postings.
+                       </p>
+                    </div>
+                    
+                 </div>
+                 {% else %}
+                 {% if predict_result == 1 %}
+                 <div class="box">
+                    <div class="front-face">
+                       <div class="icon">
+                        <i class="fas fa-check-square"></i>
+                       </div>
+                       <span>HAM</span>
+                    </div>
+                    <div class="back-face">
+                       <span>Ham</span>
+                       <p>
+                        Ham is e-mail that is not Spam. In other words, "non-spam", or "good mail
+                       </p>
+                    </div>
+                 </div>
+                 <div class="box">
+                    <div style="background: rgb(209, 37, 37);" class="front-face">
+                       <div class="icon">
+                        <i class="fas fa-exclamation-triangle"></i>
+                       </div>
+                       <span>SPAM  {{ predict_value }} </span>
+                    </div>
+                    <div style="background: linear-gradient(-135deg, #b61f1f, #e33434 )" class="back-face">
+                       <span>Spam</span>
+                       <p>
+                        Spam or unsolicited messages, e-mail, telephone,
+                        fax messages sent to multiple recipients at the same time in electronic media.
+                        The most common types of spam are ads and postings.
+                       </p>
+                    </div>
+                    
+                 </div>
+        
+                 {% else %}
+        
+                 <div class="box">
+                    <div style="background: rgb(24, 170, 61);" class="front-face">
+                       <div class="icon">
+                        <i class="fas fa-check-square"></i>
+                       </div>
+                       <span> HAM {{ predict_value }} </span>
+                    </div>
+                    <div style="background: linear-gradient(-135deg, #25b845 , #5b9e4b);" class="back-face">
+                       <span>Ham</span>
+                       <p>
+                        Ham is e-mail that is not Spam. In other words, "non-spam", or "good mail
+                       </p>
+                    </div>
+                 </div>
+                 <div class="box">
+                    <div class="front-face">
+                       <div class="icon">
+                        <i class="fas fa-exclamation-triangle"></i>
+                       </div>
+                       <span>SPAM</span>
+                    </div>
+                    <div class="back-face">
+                       <span>Spam</span>
+                       <p>
+                        Spam or unsolicited messages, e-mail, telephone,
+                        fax messages sent to multiple recipients at the same time in electronic media.
+                        The most common types of spam are ads and postings.
+                       </p>
+                    </div>
+                    
+                 </div>
+                 {% endif %}
+                 {% endif %}
+             {% endblock content %} 
+                 </div>
+
+
+                 
+        <div class="footer">
+         <p>
+            Software Engineering Project Email Spam Classification
+         </p>
+     </div>
+        </div>
+        
+     
+    </div>
+
+   
+
+</body>
+</html>

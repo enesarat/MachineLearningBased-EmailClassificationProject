@@ -1,0 +1,1 @@
+In this part of the project, we carried out preliminary cleaning of the data set, training of the models, some operations that will positively increase the evaluation criteria of the algorithms, testing the models and making them work integrated with the web application, with the program we developed with the python language.

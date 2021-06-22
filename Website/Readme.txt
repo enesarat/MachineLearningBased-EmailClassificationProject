@@ -1,0 +1,1 @@
+In this part of the project, in order to run the project, you must first install Python and then Flask, one of Python's web development frameworks, in your environment. However, you need to install the virtual environment (VirtualEnv) you will need while running the project.
